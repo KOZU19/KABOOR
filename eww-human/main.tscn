@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cl1i0yle57nh"]
+
+[ext_resource type="Script" uid="uid://chdirfqrwq2bg" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://5m7u71s2kv71" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://cl38sh4m7e75q" path="res://enemy.tscn" id="2_0xm2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyjhp"]
+size = Vector2(1328, 69)
+
+[node name="Node2D" type="Node2D" unique_id=359318269]
+script = ExtResource("1_h2yge")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1326603824]
+offset_right = 1152.0
+offset_bottom = 650.0
+color = Color(0.2000353, 0.11427862, 0.46055996, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1840333653]
+offset_left = 1.0
+offset_top = 7.0
+offset_right = 1150.0
+offset_bottom = 663.0
+color = Color(0, 0, 0, 1)
+
+[node name="CharacterBody2D" parent="." unique_id=2066614174 instance=ExtResource("1_ig7tw")]
+position = Vector2(615, 303)
+speed = null
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=794775139]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=324339417]
+position = Vector2(656, -21)
+shape = SubResource("RectangleShape2D_iyjhp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=78999922]
+position = Vector2(598, 703)
+shape = SubResource("RectangleShape2D_iyjhp")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=392631943]
+position = Vector2(837, -162)
+rotation = 1.5683794
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=2032000032]
+position = Vector2(591.8538, -352.57056)
+shape = SubResource("RectangleShape2D_iyjhp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" unique_id=2035508111]
+position = Vector2(549.8884, 874.3316)
+shape = SubResource("RectangleShape2D_iyjhp")
+
+[node name="Node2D" parent="." unique_id=1946232975 instance=ExtResource("2_0xm2m")]
+position = Vector2(841, 218)
+rotation = 1.5683794
+
+[node name="Label" type="Label" parent="." unique_id=399387693]
+z_index = 400
+offset_left = 497.0
+offset_top = 8.0
+offset_right = 766.0
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 68
+text = "SCORE : "
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=452058995]
+offset_left = -7.0
+offset_top = -3.0
+offset_right = 1186.0
+offset_bottom = 683.0
+color = Color(0.09803922, 0.09019608, 0.1882353, 0.4)
+
+[node name="Label" type="Label" parent="ColorRect3" unique_id=1872323544]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

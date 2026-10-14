@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cuu8dl08o7wd6"]
+
+[ext_resource type="PackedScene" uid="uid://5m7u71s2kv71" path="res://player.tscn" id="1_dibg8"]
+[ext_resource type="PackedScene" uid="uid://cl38sh4m7e75q" path="res://enemy.tscn" id="2_k87hl"]
+
+[node name="Node2D" type="Node2D" unique_id=2086561320]
+
+[node name="CharacterBody2D" parent="." unique_id=2066614174 instance=ExtResource("1_dibg8")]
+
+[node name="Node2D" parent="." unique_id=1946232975 instance=ExtResource("2_k87hl")]
+position = Vector2(507, 550)
+
+[node name="Node2D2" parent="." unique_id=1997566328 instance=ExtResource("2_k87hl")]
+position = Vector2(218, 296)
