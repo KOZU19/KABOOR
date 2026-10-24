@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @onready var hitbox: Area2D = $hitbox
 
-@export var speed = 800.0
+@export var speed = 300.0
 var target = Vector2.ZERO
 var moving = false
 func _ready():
@@ -14,6 +14,7 @@ func _input(event):
 			moving = true
 func _physics_process(delta: float) -> void:
 	if moving:
+		$Sprite2D.play("default")
 		var direction = global_position.direction_to(target)
 		if global_position.distance_to(target) < 5:
 			moving = false
@@ -31,4 +32,5 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):
 		print("hlo")
 		print("hit")
+		$"../loses".play()
 		get_tree().call_group("game_manager", "game_over")

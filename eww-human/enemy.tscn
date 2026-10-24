@@ -1,18 +1,21 @@
 [gd_scene format=3 uid="uid://cl38sh4m7e75q"]
 
 [ext_resource type="Script" uid="uid://b7rxrorjstr61" path="res://enemy.gd" id="1_4gyqm"]
-[ext_resource type="Texture2D" uid="uid://c6skm7elgpgwl" path="res://icon.svg" id="2_qi2p4"]
+[ext_resource type="Texture2D" uid="uid://dnarknytrko8k" path="res://Illustration 20261023 2 (9).png" id="2_4gyqm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyjhp"]
-size = Vector2(132, 128.5)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ksskx"]
+radius = 40.0
+height = 122.0
 
-[node name="Node2D" type="CharacterBody2D" unique_id=1946232975]
+[node name="Node2D" type="CharacterBody2D" unique_id=1946232975 groups=["enemies"]]
 script = ExtResource("1_4gyqm")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1465882922]
 modulate = Color(0.75254637, 0.04303564, 0.59902894, 1)
-texture = ExtResource("2_qi2p4")
+position = Vector2(-21.000002, 138)
+scale = Vector2(0.436, 0.463)
+texture = ExtResource("2_4gyqm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=657219662 groups=["enemies"]]
-position = Vector2(0, -0.25)
-shape = SubResource("RectangleShape2D_iyjhp")
+position = Vector2(-14, -2)
+shape = SubResource("CapsuleShape2D_ksskx")

@@ -1,12 +1,13 @@
 extends CharacterBody2D
-@export var speed = 300.0
-@export var lifetime := 5.0
+@export var speed = 50.0
+@export var lifetime := 3.0
 @onready var hitbox: Area2D = $hitbox
 
 
 var direction = Vector2.RIGHT
 var change_timer = 0.0
 func _ready():
+	add_to_group("enemies")
 	get_tree().create_timer(lifetime).timeout.connect(queue_free)
 	randomize()
 	pick_direction()

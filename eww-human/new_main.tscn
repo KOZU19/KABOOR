@@ -2,10 +2,49 @@
 
 [ext_resource type="Script" uid="uid://chdirfqrwq2bg" path="res://main.gd" id="1_2ss5u"]
 [ext_resource type="PackedScene" uid="uid://5m7u71s2kv71" path="res://player.tscn" id="2_ckrgq"]
+[ext_resource type="Texture2D" uid="uid://36y848w6mubj" path="res://drive-download-20261023T235825Z-1-001/GoPu (5).png" id="2_qcw2d"]
 [ext_resource type="PackedScene" uid="uid://cl38sh4m7e75q" path="res://enemy.tscn" id="3_touta"]
+[ext_resource type="Shader" uid="uid://u20xbnc8yrad" path="res://main.gdshader" id="4_w2kc5"]
+[ext_resource type="Texture2D" uid="uid://dpf6rp5nqsq2w" path="res://drive-download-20261023T235825Z-1-001/GoPu (4).png" id="6_7qgpo"]
+[ext_resource type="AudioStream" uid="uid://fxwpaim4pkey" path="res://drive-download-20261023T235825Z-1-001/space_adventure_bpm140.ogg" id="6_qcw2d"]
+[ext_resource type="FontFile" uid="uid://b36bj400y0jmm" path="res://drive-download-20261023T235825Z-1-001/KrayolaSketch-Regular.otf" id="6_w2kc5"]
+[ext_resource type="Script" uid="uid://br38bdhyvklia" path="res://title.gd" id="7_7cuaw"]
+[ext_resource type="AudioStream" uid="uid://r8bb0uadgyyn" path="res://drive-download-20261023T235825Z-1-001/drummusiclooper5000-lose-sfx-365579.mp3" id="7_7qgpo"]
+[ext_resource type="Script" uid="uid://bsb55w83enwu5" path="res://button.gd" id="11_g7d0j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iyjhp"]
 size = Vector2(1328, 69)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftygw"]
+size = Vector2(739, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcw2d"]
+size = Vector2(101.5, 350)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qgpo"]
+size = Vector2(147, 207)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ksskx"]
+size = Vector2(83.5, 312.25)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4gyqm"]
+shader = ExtResource("4_w2kc5")
+shader_parameter/scanline_strength = 0.12
+shader_parameter/scanline_density = 500.0
+shader_parameter/vignette_strength = 0.35
+shader_parameter/vignette_start = 0.1
+shader_parameter/vignette_end = 1.0
+shader_parameter/sweep_strength = 0.8
+shader_parameter/sweep_speed = 0.2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4gyqm"]
+bg_color = Color(0.101291336, 0.15342578, 0.4238518, 0.57254905)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qi2p4"]
+bg_color = Color(1, 1, 1, 0.5372549)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iifgy"]
+bg_color = Color(1, 1, 1, 0.7058824)
 
 [node name="Node2D" type="Node2D" unique_id=359318269]
 script = ExtResource("1_2ss5u")
@@ -15,12 +54,16 @@ offset_right = 1152.0
 offset_bottom = 650.0
 color = Color(0.2000353, 0.11427862, 0.46055996, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=1840333653]
-offset_left = 1.0
-offset_top = 7.0
-offset_right = 1150.0
-offset_bottom = 663.0
-color = Color(0, 0, 0, 1)
+[node name="GoPu(5)" type="Sprite2D" parent="." unique_id=490151209]
+position = Vector2(602.5, 369)
+scale = Vector2(0.64635414, 0.71481484)
+texture = ExtResource("2_qcw2d")
+metadata/_edit_group_ = true
+
+[node name="GoPu(4)" type="Sprite2D" parent="." unique_id=2109836605]
+position = Vector2(605.5, 316.5)
+scale = Vector2(0.63593745, 0.61203706)
+texture = ExtResource("6_7qgpo")
 
 [node name="CharacterBody2D" parent="." unique_id=2066614174 instance=ExtResource("2_ckrgq")]
 position = Vector2(615, 303)
@@ -50,57 +93,201 @@ shape = SubResource("RectangleShape2D_iyjhp")
 position = Vector2(549.8884, 874.3316)
 shape = SubResource("RectangleShape2D_iyjhp")
 
-[node name="Node2D" parent="." unique_id=1946232975 groups=["enemies"] instance=ExtResource("3_touta")]
+[node name="Node2D" parent="." unique_id=1946232975 instance=ExtResource("3_touta")]
 position = Vector2(841, 218)
 rotation = 1.5683794
 
 [node name="Label" type="Label" parent="." unique_id=399387693]
 z_index = 400
-offset_left = 497.0
-offset_top = 8.0
-offset_right = 766.0
-offset_bottom = 101.0
+offset_left = 852.0
+offset_top = 4.0
+offset_right = 1121.0
+offset_bottom = 97.0
+theme_override_colors/font_color = Color(0.51323664, 0.11917109, 0.16750532, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 31
+theme_override_fonts/font = ExtResource("6_w2kc5")
 theme_override_font_sizes/font_size = 68
 text = "SCORE : "
+script = ExtResource("7_7cuaw")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1413973396]
+z_index = 440
+position = Vector2(383, 414)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1214706447]
+position = Vector2(-35, -414)
+shape = SubResource("RectangleShape2D_ftygw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1089889460]
+position = Vector2(-364, 44)
+shape = SubResource("RectangleShape2D_qcw2d")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D3" unique_id=141684060]
+position = Vector2(729.5, -195.5)
+shape = SubResource("RectangleShape2D_7qgpo")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1977785661]
+position = Vector2(775, 73.875)
+shape = SubResource("RectangleShape2D_ksskx")
+
+[node name="bg" type="AudioStreamPlayer2D" parent="." unique_id=1306332934]
+stream = ExtResource("6_qcw2d")
+autoplay = true
+
+[node name="loses" type="AudioStreamPlayer2D" parent="." unique_id=1343370798]
+stream = ExtResource("7_7qgpo")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1840333653]
+z_index = 444
+material = SubResource("ShaderMaterial_4gyqm")
+offset_left = -152.0
+offset_top = -100.0
+offset_right = 1397.0
+offset_bottom = 839.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect2" unique_id=1732532805]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 122.0
+offset_right = 750.0
+offset_bottom = 299.0
+theme_override_colors/font_outline_color = Color(0.15483975, 0.026522784, 0.086636804, 1)
+theme_override_constants/outline_size = 28
+theme_override_font_sizes/font_size = 30
+text = "There are so many people!! Avoid them!!
+Point and click to move!"
+script = ExtResource("7_7cuaw")
 
 [node name="ColorRect3" type="ColorRect" parent="." unique_id=452058995]
-visible = false
-z_index = 405
-offset_left = -7.0
-offset_top = -3.0
-offset_right = 1186.0
-offset_bottom = 683.0
+z_index = 445
+offset_left = -2.0
+offset_top = -12.0
+offset_right = 1191.0
+offset_bottom = 674.0
 color = Color(0.09803922, 0.09019608, 0.1882353, 0.4)
 
 [node name="Label" type="Label" parent="ColorRect3" unique_id=1872323544]
 layout_mode = 0
-offset_left = 381.0
-offset_top = 244.0
-offset_right = 771.0
+offset_left = 324.0
+offset_top = 185.0
+offset_right = 905.0
 offset_bottom = 334.0
-theme_override_font_sizes/font_size = 65
+theme_override_colors/font_color = Color(0.32532686, 0.014787758, 0.07820674, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 60
+theme_override_fonts/font = ExtResource("6_w2kc5")
+theme_override_font_sizes/font_size = 122
 text = "GAME OVER!"
+script = ExtResource("7_7cuaw")
 
 [node name="Restart" type="Button" parent="ColorRect3" unique_id=1708379590]
+z_index = 501
 layout_mode = 0
 offset_left = 388.0
 offset_top = 342.0
 offset_right = 750.0
 offset_bottom = 402.0
-theme_override_font_sizes/font_size = 37
+theme_override_colors/font_color = Color(0.1676063, 0.023008347, 0.070891, 1)
+theme_override_colors/font_pressed_color = Color(0.641934, 0.641934, 0.641934, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.2455011, 0.03997303, 0.09177356, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("6_w2kc5")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_4gyqm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qi2p4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iifgy")
 text = "Restart"
+script = ExtResource("11_g7d0j")
 
-[node name="MainMenu" type="Button" parent="ColorRect3" unique_id=251655083]
+[node name="MainMenu" type="Button" parent="ColorRect3" unique_id=1481888868]
+z_index = 501
 layout_mode = 0
-offset_left = 390.0
-offset_top = 417.0
-offset_right = 752.0
-offset_bottom = 477.0
-theme_override_font_sizes/font_size = 37
+offset_left = 388.0
+offset_top = 436.0
+offset_right = 750.0
+offset_bottom = 496.0
+theme_override_colors/font_color = Color(0.06587253, 0.0053008217, 0.018142724, 1)
+theme_override_colors/font_pressed_color = Color(0.641934, 0.641934, 0.641934, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.2455011, 0.03997303, 0.09177356, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("6_w2kc5")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_4gyqm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qi2p4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iifgy")
 text = "Main Menu"
+script = ExtResource("11_g7d0j")
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=1324607843]
+z_index = 445
+offset_left = -2.0
+offset_top = -12.0
+offset_right = 1191.0
+offset_bottom = 674.0
+color = Color(0.09803922, 0.09019608, 0.1882353, 0.4)
+
+[node name="Label" type="Label" parent="ColorRect4" unique_id=1254836029]
+layout_mode = 0
+offset_left = 331.0
+offset_top = 190.0
+offset_right = 912.0
+offset_bottom = 339.0
+theme_override_colors/font_color = Color(0.32532686, 0.014787758, 0.07820674, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 60
+theme_override_fonts/font = ExtResource("6_w2kc5")
+theme_override_font_sizes/font_size = 122
+text = "YOU WIN!!"
+script = ExtResource("7_7cuaw")
+
+[node name="Restart" type="Button" parent="ColorRect4" unique_id=1987441296]
+z_index = 501
+layout_mode = 0
+offset_left = 388.0
+offset_top = 342.0
+offset_right = 750.0
+offset_bottom = 402.0
+theme_override_colors/font_color = Color(0.1676063, 0.023008347, 0.070891, 1)
+theme_override_colors/font_pressed_color = Color(0.641934, 0.641934, 0.641934, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.2455011, 0.03997303, 0.09177356, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("6_w2kc5")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_4gyqm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qi2p4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iifgy")
+text = "Restart"
+script = ExtResource("11_g7d0j")
+
+[node name="MainMenu" type="Button" parent="ColorRect4" unique_id=1106236416]
+z_index = 501
+layout_mode = 0
+offset_left = 388.0
+offset_top = 436.0
+offset_right = 750.0
+offset_bottom = 496.0
+theme_override_colors/font_color = Color(0.06587253, 0.0053008217, 0.018142724, 1)
+theme_override_colors/font_pressed_color = Color(0.641934, 0.641934, 0.641934, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.2455011, 0.03997303, 0.09177356, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("6_w2kc5")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_4gyqm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qi2p4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iifgy")
+text = "Main Menu"
+script = ExtResource("11_g7d0j")
 
 [connection signal="body_entered" from="CharacterBody2D/hitbox" to="CharacterBody2D" method="_on_hitbox_body_entered"]
 [connection signal="pressed" from="ColorRect3/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="ColorRect3/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="ColorRect4/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="ColorRect4/MainMenu" to="." method="_on_main_menu_pressed"]
 
 [editable path="CharacterBody2D"]
